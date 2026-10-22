@@ -76,4 +76,22 @@ Default value: Looks into $PATH
 `RAYON_NUM_THREADS`:  
 Behaviour: Limits amount of threads used by rayon  
 Possible values: 32-bit unsigned integer  
-Default value: Amount of (virtualized) cpus available on system  
+Default value: Amount of (virtualized) cpus available on system
+
+## unpack_dxp_and_grp
+
+Expects:
+
+- folder with `.dxp.bin` texture packs and/or `.grp` resource packs (subfolders are searched too)
+
+Writes a text file per pack listing the textures or resources it holds.
+
+Optional:
+
+- `--textures dds` also exports every texture of each DXP into a folder named after the pack, as DDS with the original pixel format and mips
+- `--textures png` does the same as PNG (top mip only)
+
+```
+{{DXP_HELP}}
+```
+

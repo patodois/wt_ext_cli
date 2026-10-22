@@ -35,9 +35,11 @@ default = []
 
 [dependencies]
 clap = { version = "4.5", features = ["cargo"] }
-wt_blk = { git = "https://github.com/Warthunder-Open-Source-Foundation/wt_blk", branch = "master" }
+# Texture export needs Warthunder-Open-Source-Foundation/wt_blk#28; point back at master once it is merged
+wt_blk = { git = "https://github.com/patodois/wt_blk", branch = "dxp-textures", features = ["png"] }
 #wt_blk = { path = "../wt_blk" }
 thiserror = "2.0"
+memmap2 = "0.9"
 rayon = "1.11"
 open = "5.3"
 color-eyre = { version = "^0.6", default-features = false }

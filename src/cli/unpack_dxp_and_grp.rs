@@ -3,7 +3,7 @@ use clap::{Arg, ArgAction, Command, ValueHint};
 pub fn unpack_dxp_and_grp() -> Command {
 	Command::new("unpack_dxp_and_grp")
 		.long_flag("unpack_dxp")
-		.about("Unpacks folder and subfolder DXP and GRP files to text-formatted file")
+		.about("Unpacks folder and subfolder DXP and GRP files to text-formatted file, and optionally exports DXP textures")
 		.arg(
 			Arg::new("Input directory")
 				.short('i')
@@ -25,5 +25,11 @@ pub fn unpack_dxp_and_grp() -> Command {
 				.help("Paths and Names inside the final DXP/GRP are always followed by \"water_garbage_pile_b_tex_d$hq*\" or random unicode chars \"u+4575\"")
 				.num_args(0) // Expects only a flag, no data
 				.action(ArgAction::SetTrue)
+		)
+		.arg(
+			Arg::new("Textures")
+				.long("textures")
+				.help("Also export every texture of each DXP, as DDS (original format and mips) or PNG (top mip), into a folder named after the pack")
+				.value_parser(["dds", "png"])
 		)
 }
